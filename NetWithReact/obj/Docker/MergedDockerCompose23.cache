@@ -1,0 +1,25 @@
+services:
+  catalogservices:
+    build:
+      context: C:\Users\vu.tran\source\repos\NetWithReact
+      dockerfile: CatalogServices/Dockerfile
+    depends_on:
+      sqldata:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://0.0.0.0:80
+      UseCustomizationData: "True"
+    image: catalogservices
+    ports:
+    - published: 5105
+      target: 80
+  sqldata:
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Minhvu0903.
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+    - published: 5433
+      target: 1433
+version: '3.4'

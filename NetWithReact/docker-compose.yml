@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+
+  sqldata:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+
+  basketdata:
+    image: redis:alpine
+
+  catalogservices:
+    image: ${DOCKER_REGISTRY-}catalogservices
+    build:
+      context: .
+      dockerfile: CatalogServices/Dockerfile
+    depends_on:
+      - sqldata
+
+  basketservices:
+    image: ${DOCKER_REGISTRY-}basketservices
+    build:
+      context: .
+      dockerfile: BasketServices/Dockerfile
+    depends_on:
+      - basketdata
+

@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+
+  sqldata:
+    environment: 
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Minhvu0903.
+    ports:
+      - "5433:1433"
+
+  basketdata:
+    ports:
+      - "6379:6379" 
+
+  catalogservices:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - UseCustomizationData=True
+    ports:
+      - "5105:80"
+
+  basketservices:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5103:80"

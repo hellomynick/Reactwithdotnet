@@ -1,0 +1,13 @@
+services:
+  catalogservices:
+    build:
+      context: C:\Users\vu.tran\source\repos\NetWithReact
+      dockerfile: CatalogServices/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: catalogservices
+    ports:
+    - target: 80
+    volumes:
+    - C:\Users\vu.tran\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+version: '3.4'

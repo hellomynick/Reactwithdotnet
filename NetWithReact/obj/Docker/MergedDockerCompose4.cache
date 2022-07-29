@@ -1,0 +1,21 @@
+services:
+  catalogservices:
+    build:
+      context: C:\Users\vu.tran\source\repos\NetWithReact
+      dockerfile: CatalogServices/Dockerfile
+    depends_on:
+      sqldata:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: catalogservices
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\vu.tran\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\vu.tran\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+  sqldata:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+version: '3.4'

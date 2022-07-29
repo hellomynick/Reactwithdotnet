@@ -1,0 +1,41 @@
+services:
+  basketdata:
+    image: redis:alpine
+  basketservices:
+    build:
+      context: C:\Users\vu.tran\source\repos\NetWithReact
+      dockerfile: BasketServices/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: basketservices
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\vu.tran\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\vu.tran\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+  catalogservices:
+    build:
+      context: C:\Users\vu.tran\source\repos\NetWithReact
+      dockerfile: CatalogServices/Dockerfile
+    depends_on:
+      sqldata:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://0.0.0.0:80
+      UseCustomizationData: "True"
+    image: catalogservices
+    ports:
+    - published: 5105
+      target: 80
+  sqldata:
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Minhvu0903.
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+    - published: 5433
+      target: 1433
+version: '3.4'

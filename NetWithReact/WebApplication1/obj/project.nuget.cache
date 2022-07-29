@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "P81z7TAPDdztmYTev5WKQflnvIN515P1rRzfEFPjINdfJu3axQIIVKEITd6fSMmmo+NVRSKtQCLF05AKVMrTYQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\vu.tran\\source\\repos\\NetWithReact\\WebApplication1\\ReD.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vu.tran\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\vu.tran\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\vu.tran\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\vu.tran\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\vu.tran\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\vu.tran\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
